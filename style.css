@@ -84,7 +84,7 @@ a {
 
 .caixa-principal {
     border-radius: 25px;
-    border: 2px solid white;
+    border: 1px solid white;
     background: transparent;
     backdrop-filter: blur(15px);
     position: absolute;
