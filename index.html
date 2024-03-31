@@ -5,21 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina de login</title>
+    <link rel="shortcut icon" href="favicon/botao-de-login-do-usuario.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
     <main>
-        <div class="caixa-principal">
-            <form action="#" method="post" autocomplete="off">
+        <div class="caixa-principal" data-aos="fade-up">
+            <div class="formulario">
                 <h1>Login</h1>
-                <input class="int" type="email" name="email" required placeholder="digite seu email"><br>
-                <input class="int" type="password" name="senha" required placeholder="digite sua senha" minlength="8" maxlength="13"><br>
+                <input class="int1" type="email" name="email" required placeholder="digite seu email"><br>
+                <input class="int2" type="password" name="senha" required placeholder="digite sua senha"><br>
                 <p>Esqueceu a senha? <a href="#">Clique aqui</a></p><br><br><br>
-                <input class="botao" type="submit" value="Logar">
-            </form>
+                <button id="abrir" class="botao">Logar</button>
+            </div>
+        </div>
+        <div id="fade" class="hide"></div>
+        <button id="fechar" class="hide">X</button>
+        <div id="modal" class="hide">
+           <h2>Obrigado por se conectar com o nosso time</h2>
         </div>
     </main>
+    <script>
+        AOS.init();
+    </script>    
 </body>
 
 </html>
