@@ -1,8 +1,8 @@
 # Pagina de login
 
-Um formulario de login contendo dois campos de preenchimento obrigatorio e um link de recuperação de senha
+Formulario de login contendo dois campos de preenchimento obrigatorio, link de recuperação de senha e uma modal assim que o usuario enviar o formulario
 
-![Captura de tela](https://github.com/JoaoVitor2004/Pagina-de-login/assets/143558833/84b2c9ee-7562-433d-86c1-c435866d63ce)
+![Captura de tela](https://github.com/JoaoVitor2004/Pagina-de-login/assets/143558833/3d7de3e9-811d-4f03-8f84-3635651055b3)
 
 ## 🛠 Ferramenta e tecnologias utilizadas
 
@@ -12,4 +12,4 @@ Um formulario de login contendo dois campos de preenchimento obrigatorio e um li
   - CSS
   - JAVASCRIPT
 
-<p>🔗 link para acessar o <a href="https://joaovitor2004.github.io/Pagina-de-login/">site</a></p>
+<p>🔗 link para acessar o <a href="https://joaovitor2004.github.io/pagina-de-login/">site</a></p>
