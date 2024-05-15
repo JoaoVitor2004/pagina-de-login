@@ -130,25 +130,6 @@ a:hover {
     border-radius: 10px;
 }
 
-#fechar {
-    position: fixed;
-    top: 32%;
-    left: 50%;
-    z-index: 5;
-    transform: translate(-50%, -50%);
-    padding: 8px 25px;
-    border-radius: 5px;
-    background: none;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-    color: white;
-    border: 1px solid white;
-}
-
-#fechar:hover {
-    background-color: red;
-}
-
 #fade {
     position: absolute;
     top: 0;
@@ -159,17 +140,18 @@ a:hover {
 }
 
 #modal.hide,
-#fade.hide,
-#fechar.hide {
+#fade.hide {
     top: 0;
+    width: 0%;
     opacity: 0;
     pointer-events: none;
 }
 
-#modal,#fechar,#fade {
+#modal,#fade {
     opacity: 1;
-    transition: 0.2s ease-in-out;
+    transition: 0.5s ease-in-out;
     pointer-events: all;
+    z-index: 2;
 }
 
 
