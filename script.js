@@ -4,10 +4,14 @@ const inputs = document.querySelectorAll('.input')
 const form = document.getElementById('form')
 const texto = document.getElementById('res')
 
+function limparErroBorda(indice) {
+    inputs[indice].style.borderBottom = ''
+}
+
 function exibirErro(indice){
     modal.classList.toggle('hide')
     fade.classList.toggle('hide')
-    inputs[indice].style.borderBottom = '2px solid rgb(250, 67, 67'
+    inputs[indice].style.borderBottom = '2px solid rgb(250, 67, 67)'
 }
 
 function limparErro() {
