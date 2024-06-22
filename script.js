@@ -6,6 +6,10 @@ const inputSenha = document.querySelector('.int2')
 const form = document.getElementById('form')
 const texto = document.getElementById('res')
 
+function limparErroBorda(indice) {
+    inputs[indice].style.borderBottom = ''
+}
+
 function exibirErro(indice){
     modal.classList.toggle('hide')
     fade.classList.toggle('hide')
