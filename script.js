@@ -1,20 +1,19 @@
 const modal = document.querySelector('#modal')
 const fade = document.querySelector('#fade')
-const inputs = document.querySelectorAll('.input')
+const divs = document.querySelectorAll('.input')
+const inputEmail = document.querySelector('.int1')
+const inputSenha = document.querySelector('.int2')
 const form = document.getElementById('form')
 const texto = document.getElementById('res')
 
 function exibirErro(indice){
     modal.classList.toggle('hide')
     fade.classList.toggle('hide')
-    inputs[indice].style.borderBottom = '2px solid rgb(250, 67, 67'
+    divs[indice].style.borderBottom = '2px solid rgb(250, 67, 67'
 }
 
-function limparErro() {
-    setTimeout(() => {
-        modal.classList.add('hide')
-        fade.classList.add('hide')
-    }, 2200)
+function limparErro(indice) {
+    divs[indice].style.borderBottom = '2px solid white'
 }
 
 function validarEmail(email) {
@@ -33,16 +32,22 @@ form.addEventListener('submit', (remove) => {
         
     remove.preventDefault()
 
-    if (!validarEmail(inputs[0].value)) {
+    if (!validarEmail(inputEmail.value)) {
         exibirErro(0)
-        limparErro()
+        setTimeout(() => {
+            modal.classList.add('hide')
+            fade.classList.add('hide')
+        }, 2200)
         texto.innerHTML = 'Digite um email valido'
         return
     }
 
-    if (inputs[1].value.length < 8) {
+    if (inputSenha.value.length < 8) {
         exibirErro(1)
-        limparErro()
+        setTimeout(() => {
+            modal.classList.add('hide')
+            fade.classList.add('hide')
+        }, 2200)
         texto.innerHTML = 'Digite uma senha com no minimo 8 caracteres'
         return
     }

@@ -10,6 +10,12 @@
     <script src="script.js" defer></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+        integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -21,13 +27,19 @@
         <div class="caixa-principal">
             <h1>Login</h1>
             <form action="" class="formulario" id="form">
-                <input class="int1 input" type="email" name="email" placeholder="digite seu email"><br>
-                <input class="int2 input" type="password" name="senha" placeholder="digite sua senha"><br>
+                <div class="email input">
+                    <input class="int1" type="email" name="email" placeholder="digite seu email" oninput="limparErro(0)">
+                    <i class="fa-solid fa-envelope icon-email"></i>
+                </div><br>
+                <div class="senha input">
+                    <input class="int2" type="password" name="senha" placeholder="digite sua senha" oninput="limparErro(1)">
+                    <i class="fa-solid fa-lock icon-senha"></i>
+                </div><br>
                 <p>Esqueceu a senha? <a href="#">Clique aqui</a></p><br><br><br>
                 <input id="abrir" class="botao" type="submit" value="Logar">
             </form>
         </div>
-    </main>  
+    </main>
 </body>
 
 </html>

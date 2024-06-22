@@ -52,27 +52,46 @@ h1 {
     color: white;
 }
 
+.email {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid white;
+    padding: 15px;
+}
+
+.email .icon-email {
+    color: white;
+}
+
+.senha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid white;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.senha .icon-senha {
+    color: white;
+}
+
 .int1 {
     color: white;
-    width: 255px;
     outline: none;
     border: none;
     background: none;
-    border-bottom: 2px solid white;
-    padding: 10px;
-    margin-bottom: 30px;
     width: 100%;
 }
 
 .int2 {
     color: white;
-    width: 255px;
     outline: none;
     border: none;
     background: none;
-    border-bottom: 2px solid white;
-    padding: 10px;
-    margin-bottom: 30px;
     width: 100%;
 }
 
