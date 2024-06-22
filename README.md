@@ -2,7 +2,7 @@
 
 Formulario de login contendo dois campos de preenchimento obrigatorio, link de recuperação de senha e uma modal assim que o usuario enviar o formulario
 
-![Captura de tela](https://github.com/JoaoVitor2004/Pagina-de-login/assets/143558833/3d7de3e9-811d-4f03-8f84-3635651055b3)
+![Capturar](https://github.com/JoaoVitor2004/pagina-de-login/assets/143558833/619c025b-f327-4e9a-8dac-21198a9ad9fe)
 
 ## 🛠 Ferramenta e tecnologias utilizadas
 
