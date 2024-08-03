@@ -33,6 +33,7 @@ main {
     backdrop-filter: blur(15px);
     position: absolute;
     padding: 70px;
+    max-width: 95%;
 }
 
 .formulario {
@@ -171,17 +172,4 @@ a:hover {
     transition: 0.5s ease-in-out;
     pointer-events: all;
     z-index: 2;
-}
-
-
-@media (max-width: 470px) {
-
-    .caixa-principal {
-        width: 95%;
-        backdrop-filter: blur(10px);
-    }
-
-    .caixa-principal form p {
-        font-size: 15px;
-    }
 }
