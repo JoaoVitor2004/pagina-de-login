@@ -6,7 +6,6 @@ const divs = document.querySelectorAll('.input');
 const inputEmail = document.getElementById('input-email');
 const inputPassword = document.getElementById('input-password');
 const form = document.getElementById('form');
-const inputElementPassword = inputPassword;
 const classeHide = 'hide';
 const comprimentoMinimoPassword = 8;
 const erroBorda = '2px solid red';
@@ -22,26 +21,24 @@ function limparErro(indice) {
     if (divs[indice])
         divs[indice].style.borderBottom = clearBorda;
 }
-inputEmail === null || inputEmail === void 0 ? void 0 : inputEmail.addEventListener('input', () => limparErro(0));
-inputPassword === null || inputPassword === void 0 ? void 0 : inputPassword.addEventListener('input', () => limparErro(1));
 function esconderModal() {
     fade === null || fade === void 0 ? void 0 : fade.classList.add(classeHide);
     modal === null || modal === void 0 ? void 0 : modal.classList.add(classeHide);
 }
 form === null || form === void 0 ? void 0 : form.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (!inputEmail || inputEmail.value.trim() === '') {
+    if (!(inputEmail === null || inputEmail === void 0 ? void 0 : inputEmail.value)) {
         exibirErro(0);
         setTimeout(esconderModal, 2200);
         if (textModal)
             textModal.innerHTML = 'Digite um email valido!';
         return;
     }
-    if (!inputEmail || inputEmail.value.trim() === '') {
+    if (!(inputPassword === null || inputPassword === void 0 ? void 0 : inputPassword.value) || inputPassword.value.length < 8) {
         exibirErro(1);
+        setTimeout(esconderModal, 2200);
         if (textModal)
             textModal.innerHTML = 'Digite uma senha forte e segura';
-        setTimeout(esconderModal, 2200);
         return;
     }
     alert('Bem vindo de volta!');

@@ -3,12 +3,9 @@ const fade: HTMLElement | null = document.getElementById('fade')
 const modal: HTMLElement | null = document.getElementById('modal')
 const textModal: HTMLElement | null = document.getElementById('res')
 const divs = document.querySelectorAll<HTMLElement>('.input')
-const inputEmail: HTMLInputElement | null = document.getElementById('input-email') as HTMLInputElement | null
-const inputPassword: HTMLInputElement | null = document.getElementById('input-password') as HTMLInputElement | null
-const form: HTMLFormElement | null = document.getElementById('form') as HTMLFormElement | null
-
-
-const inputElementPassword = inputPassword as HTMLElement | null
+const inputEmail = document.getElementById('input-email') as HTMLInputElement | null
+const inputPassword = document.getElementById('input-password') as HTMLInputElement | null
+const form = document.getElementById('form') as HTMLFormElement | null
 
 const classeHide: string = 'hide'
 const comprimentoMinimoPassword: number = 8
@@ -27,9 +24,6 @@ function limparErro(indice: number):void {
     if (divs[indice]) divs[indice].style.borderBottom = clearBorda
 }
 
-inputEmail?.addEventListener('input', () => limparErro(0))
-inputPassword?.addEventListener('input', ()=> limparErro(1))
-
 function esconderModal() {
     fade?.classList.add(classeHide)
     modal?.classList.add(classeHide)
@@ -39,17 +33,17 @@ form?.addEventListener('submit', (event) => {
 
     event.preventDefault()
 
-    if (!inputEmail || inputEmail.value.trim() === '') {
+    if (!inputEmail?.value) {
         exibirErro(0)
         setTimeout(esconderModal, 2200)
         if (textModal) textModal.innerHTML = 'Digite um email valido!'
         return
-    } 
+    }
 
-    if (!inputEmail || inputEmail.value.trim() === '') {
+    if (!inputPassword?.value || inputPassword.value.length < 8) {
         exibirErro(1)
-        if (textModal) textModal.innerHTML = 'Digite uma senha forte e segura'
         setTimeout(esconderModal, 2200)
+        if (textModal) textModal.innerHTML = 'Digite uma senha forte e segura'
         return
     }
 
