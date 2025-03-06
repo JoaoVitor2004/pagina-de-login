@@ -4,7 +4,7 @@ const textModal: HTMLElement | null = document.getElementById('res')
 const divs = document.querySelectorAll<HTMLElement>('.input')
 const inputEmail = document.getElementById('input-email') as HTMLInputElement | null
 const inputPassword = document.getElementById('input-password') as HTMLInputElement | null
-const iconPassword = document.getElementById("icon-password")
+const iconPassword = document.querySelector("#icon-password")
 const form = document.getElementById('form') as HTMLFormElement | null
 
 const classeHide: string = 'hide'
@@ -12,46 +12,50 @@ const comprimentoMinimoPassword: number = 8
 const erroBorda: string = '2px solid red'
 const clearBorda: string = '2px solid white'
 
-function exibirErro(indice: number):void {
+function exibirErro(): void {
     fade?.classList.remove(classeHide)
     modal?.classList.remove(classeHide)
-    if (divs[indice]) {
-        divs[indice].style.borderBottom = erroBorda
+    if (divs) {
+        divs.forEach((div) => div.style.borderBottom = "2px solid red")
     }
+    setTimeout(() => {
+        fade?.classList.add(classeHide)
+        modal?.classList.add(classeHide)
+    }, 2200)
 }
 
-function esconderModal() {
-    fade?.classList.add(classeHide)
-    modal?.classList.add(classeHide)
-}
-
-function limparErro(indice: number):void {
+function limparErro(indice: number): void {
     if (divs[indice]) divs[indice].style.borderBottom = clearBorda
 }
 
-function validarEmail(email: string) {
-    const verificar = new RegExp(
-        /^[a-zA-Z.-_]+@+[a-zA-Z]+\.+[a-zA-Z]]/
-    )
+function validarEmail(email: string): void {
 
-    if (verificar.test(email)) {
-        return true
+    if (!email.match(/\w+@+[a-zA-Z]+\.+[a-zA-Z]/)) {
+        throw new Error("Digite um email válido")
     }
 
-    return false
 }
 
-iconPassword!.addEventListener("click", () => {
-    if (inputPassword!.getAttribute("type") === "password") {
-        inputPassword!.setAttribute("type", "text")
+function validarSenha(password: string): void {
+    if (
+        password.length < 8 ||
+        !password.match(/\w/) ||
+        !password.match(/\W/)
+    ) {
+        throw new Error("Senha invalida")
+    }
+}
 
-        iconPassword!.classList.add("bi-eye-slash-fill")
-        iconPassword!.classList.remove("bi-eye-fill")
-    } else {
-        inputPassword!.setAttribute("type", "password")
+iconPassword?.addEventListener("click", () => {
+    if (inputPassword) {
 
-        iconPassword!.classList.add("bi-eye-fill")
-        iconPassword!.classList.remove("bi-eye-slash-fill")
+        const tipo = inputPassword.type
+
+        if (tipo === "password") {
+            inputPassword.type = "text"
+        } else {
+            inputPassword.type = "password"
+        }
     }
 })
 
@@ -59,17 +63,16 @@ form?.addEventListener('submit', (event) => {
 
     event.preventDefault()
 
-    if (!validarEmail(inputEmail!.value)) {
-        exibirErro(0)
-        setTimeout(esconderModal, 2200)
-        if (textModal) textModal.innerHTML = 'Digite um email valido!'
-        return
-    }
+    try {
+        validarEmail(inputEmail!.value)
+        validarSenha(inputPassword!.value)
+    } catch (error) {
+        exibirErro()
 
-    if (!inputPassword?.value || inputPassword.value.length < 8) {
-        exibirErro(1)
-        setTimeout(esconderModal, 2200)
-        if (textModal) textModal.innerHTML = 'Digite uma senha forte e segura'
+        if (error instanceof Error) {
+            if (textModal) textModal.innerHTML = error!.message
+        }
+
         return
     }
 
